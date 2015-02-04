@@ -1,6 +1,9 @@
 <script>
-    // TogetherJS configuration would go here, but we'll talk about that
-    // later
+    <?php /** @var $customer Mage_Customer_Model_Customer */ ?>
+    <?php $customer = Mage::helper('customer')->getCustomer(); ?>
+    <?php if ($customer): ?>
+    TogetherJSConfig_getUserName = function () {return "<?php echo $customer->getFirstname() . " " . $customer->getLastname(); ?>";};
+    TogetherJSConfig_getUserAvatar = function () {return "<?php echo "http://www.gravatar.com/avatar/". md5(strtolower(trim($customer->getEmail()))); ?>";};
+    <?php endif; ?>
 </script>
 <button class="button button-shopping-assistant" data-shoppingassistant-start><span><span>Request Shopping Assistant</span></span></button>
-
