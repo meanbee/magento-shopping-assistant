@@ -1,6 +1,22 @@
 <script>
-    // TogetherJS configuration would go here, but we'll talk about that
-    // later
+    <?php /** @var $customer Mage_Customer_Model_Customer */ ?>
+    <?php $customer = Mage::helper('customer')->getCustomer(); ?>
+    <?php if ($customer): ?>
+    TogetherJSConfig_getUserName = function () {
+        return "<?php echo $customer->getFirstname() . " " . $customer->getLastname(); ?>";
+    };
+    TogetherJSConfig_getUserAvatar = function () {
+        return "<?php echo "http://www.gravatar.com/avatar/". md5(strtolower(trim($customer->getEmail()))); ?>";
+    };
+    TogetherJSConfig_getUserColor = function () {
+        return '#<?php echo substr(md5(rand()), 0, 6); ?>';
+    };
+    <?php endif; ?>
+
+    TogetherJSConfig_on_ready = function () {
+       var event = document.createEvent('Event');
+       event.initEvent('togetherjs:ready', true, true);
+       document.dispatchEvent(event);
+    };
 </script>
 <button class="button button-shopping-assistant" data-shoppingassistant-start><span><span>Request Shopping Assistant</span></span></button>
-
