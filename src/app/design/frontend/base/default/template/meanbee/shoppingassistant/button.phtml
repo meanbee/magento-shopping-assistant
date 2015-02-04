@@ -2,8 +2,17 @@
     <?php /** @var $customer Mage_Customer_Model_Customer */ ?>
     <?php $customer = Mage::helper('customer')->getCustomer(); ?>
     <?php if ($customer): ?>
-    TogetherJSConfig_getUserName = function () {return "<?php echo $customer->getFirstname() . " " . $customer->getLastname(); ?>";};
-    TogetherJSConfig_getUserAvatar = function () {return "<?php echo "http://www.gravatar.com/avatar/". md5(strtolower(trim($customer->getEmail()))); ?>";};
+    TogetherJSConfig_getUserName = function () {
+        return "<?php echo $customer->getFirstname() . " " . $customer->getLastname(); ?>";
+    };
+    TogetherJSConfig_getUserAvatar = function () {
+        return "<?php echo "http://www.gravatar.com/avatar/". md5(strtolower(trim($customer->getEmail()))); ?>";
+    };
+    TogetherJSConfig_getUserColor = function () {
+        return '#<?php echo substr(md5(rand()), 0, 6); ?>';
+    };
+
+
     <?php endif; ?>
 </script>
 <button class="button button-shopping-assistant" data-shoppingassistant-start><span><span>Request Shopping Assistant</span></span></button>
