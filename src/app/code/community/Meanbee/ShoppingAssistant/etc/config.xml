@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Meanbee_ShoppingAssistant>
+            <version>0.0.1</version>
+        </Meanbee_ShoppingAssistant>
+    </modules>
+    <global>
+        <helpers>
+            <meanbee_shoppingassistant>
+                <class>Meanbee_ShoppingAssistant_Helper</class>
+            </meanbee_shoppingassistant>
+        </helpers>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <meanbee_shoppingassistant>
+                    <file>meanbee/shoppingassistant.xml</file>
+                </meanbee_shoppingassistant>
+            </updates>
+        </layout>
+    </frontend>
+
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <meanbee_shoppingassistant translate="title">
+                                            <title>Shopping Assistant</title>
+                                            <sort_order>0</sort_order>
+                                        </meanbee_shoppingassistant>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>

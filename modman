@@ -1,0 +1,6 @@
+src/app/code/community/Meanbee/ShoppingAssistant     app/code/community/Meanbee/ShoppingAssistant
+src/app/design/frontend/base/default/layout/meanbee/*   app/design/frontend/base/default/layout/meanbee/
+src/app/design/frontend/base/default/template/meanbee/shoppingassistant app/design/frontend/base/default/template/meanbee/shoppingassistant
+src/skin/frontend/base/default/js/meanbee/shoppingassistant    skin/frontend/base/default/js/meanbee/shoppingassistant
+src/app/etc/modules/*    app/etc/modules/
+src/js/Meanbee/ShoppingAssistant    js/Meanbee/ShoppingAssistant
