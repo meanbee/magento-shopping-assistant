@@ -8,6 +8,8 @@ Meanbee_ShoppingAssistant.prototype = {
             started: false
         }, options || {} );
 
+        document.addEventListener('togetherjs:ready', this.notifyAdmin.bind(this));
+
         $$(this.options.startElements).each(function(element) {
             Event.observe(element,'click', this.toggleSession.bind(this));
         }.bind(this));
@@ -15,8 +17,11 @@ Meanbee_ShoppingAssistant.prototype = {
 
     toggleSession: function() {
         TogetherJS(this);
-    }
+    },
 
+    notifyAdmin: function() {
+        console.log("URL: " + TogetherJS.shareUrl());
+    }
 
 };
 

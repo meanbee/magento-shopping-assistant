@@ -11,8 +11,12 @@
     TogetherJSConfig_getUserColor = function () {
         return '#<?php echo substr(md5(rand()), 0, 6); ?>';
     };
-
-
     <?php endif; ?>
+
+    TogetherJSConfig_on_ready = function () {
+       var event = document.createEvent('Event');
+       event.initEvent('togetherjs:ready', true, true);
+       document.dispatchEvent(event);
+    };
 </script>
 <button class="button button-shopping-assistant" data-shoppingassistant-start><span><span>Request Shopping Assistant</span></span></button>
