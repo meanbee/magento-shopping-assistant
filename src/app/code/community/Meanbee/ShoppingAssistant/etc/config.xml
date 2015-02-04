@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Meanbee_ShoppingAssistant>
-            <version>0.0.1</version>
+            <version>1.0.0</version>
         </Meanbee_ShoppingAssistant>
     </modules>
     <global>
@@ -11,6 +11,28 @@
                 <class>Meanbee_ShoppingAssistant_Helper</class>
             </meanbee_shoppingassistant>
         </helpers>
+        <models>
+            <meanbee_shoppingassistant>
+                <class>Meanbee_ShoppingAssistant_Model</class>
+                <resourceModel>meanbee_shoppingassistant_resource</resourceModel>
+            </meanbee_shoppingassistant>
+            <meanbee_shoppingassistant_resource>
+                <class>Meanbee_ShoppingAssistant_Model_Resource</class>
+                <entities>
+                    <request>
+                        <table>meanbee_shoppingassistant_request</table>
+                    </request>
+                </entities>
+            </meanbee_shoppingassistant_resource>
+        </models>
+        <resources>
+            <meanbee_shoppingassistant_setup>
+                <setup>
+                    <module>Meanbee_ShoppingAssistant</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </meanbee_shoppingassistant_setup>
+        </resources>
     </global>
 
     <frontend>
