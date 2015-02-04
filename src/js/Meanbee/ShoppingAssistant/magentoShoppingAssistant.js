@@ -20,7 +20,14 @@ Meanbee_ShoppingAssistant.prototype = {
     },
 
     notifyAdmin: function() {
-        console.log("URL: " + TogetherJS.shareUrl());
+        new Ajax.Request(MeanbeeBaseUrl + 'shopping_assistant', {
+            parameters: {url: TogetherJS.shareUrl()},
+            onSuccess: function(transport) {
+                var response = transport.responseText || "no response text";
+                alert("Success! \n\n" + response);
+            },
+            onFailure: function() { alert('Something went wrong...'); }
+        });
     }
 
 };
