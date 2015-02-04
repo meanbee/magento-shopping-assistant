@@ -33,7 +33,24 @@
                 </setup>
             </meanbee_shoppingassistant_setup>
         </resources>
+        <blocks>
+            <meanbee_shoppingassistant>
+                <class>Meanbee_ShoppingAssistant_Block</class>
+            </meanbee_shoppingassistant>
+        </blocks>
     </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <meanbee_shoppingassistant after="Mage_Adminhtml">Meanbee_ShoppingAssistant_Adminhtml</meanbee_shoppingassistant>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
 
     <frontend>
         <layout>
@@ -44,30 +61,4 @@
             </updates>
         </layout>
     </frontend>
-
-    <adminhtml>
-        <acl>
-            <resources>
-                <all>
-                    <title>Allow Everything</title>
-                </all>
-                <admin>
-                    <children>
-                        <system>
-                            <children>
-                                <config>
-                                    <children>
-                                        <meanbee_shoppingassistant translate="title">
-                                            <title>Shopping Assistant</title>
-                                            <sort_order>0</sort_order>
-                                        </meanbee_shoppingassistant>
-                                    </children>
-                                </config>
-                            </children>
-                        </system>
-                    </children>
-                </admin>
-            </resources>
-        </acl>
-    </adminhtml>
 </config>
