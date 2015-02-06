@@ -1,7 +1,10 @@
 <script>
     var MeanbeeBaseUrl = "<?php echo Mage::getBaseUrl() ?>";
 
+    TogetherJSConfig_toolName = "<?php echo $this->__('Shopping Assistant') ?>";
     TogetherJSConfig_siteName = "<?php echo Mage::app()->getWebsite()->getName() ?>";
+    TogetherJSConfig_suppressInvite = true;
+    TogetherJSConfig_youtube = true;
 
     <?php /** @var $customer Mage_Customer_Model_Customer */ ?>
     <?php $customer = Mage::helper('customer')->getCustomer(); ?>
@@ -21,9 +24,7 @@
     <?php endif; ?>
 
     TogetherJSConfig_on_ready = function () {
-       var event = document.createEvent('Event');
-       event.initEvent('togetherjs:ready', true, true);
-       document.dispatchEvent(event);
+       document.fire('togetherjs:ready');
     };
 </script>
 <button class="button button-shopping-assistant" data-shoppingassistant-start><span><span>Request Shopping Assistant</span></span></button>
