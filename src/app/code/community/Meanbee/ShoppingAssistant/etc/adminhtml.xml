@@ -7,6 +7,9 @@
                     <title>Shopping Assistant Requests</title>
                     <action>adminhtml/shopping_assistant/</action>
                     <sort_order>200</sort_order>
+                    <depends>
+                        <config>meanbee_shoppingassistant/general/enabled</config>
+                    </depends>
                 </meanbee_shoppingassistant>
             </children>
         </customer>

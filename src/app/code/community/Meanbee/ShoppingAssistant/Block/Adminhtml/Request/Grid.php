@@ -21,6 +21,19 @@ class Meanbee_ShoppingAssistant_Block_Adminhtml_Request_Grid extends Mage_Adminh
 
     protected function _prepareColumns()
     {
+        $this->addColumn("name", array(
+            "header" => $this->__("Customer Name"),
+            "index"  => "name",
+            "type"   => "text",
+        ));
+
+        $this->addColumn("customer_id", array(
+            "header" => $this->__("Customer ID"),
+            "index"  => "customer_id",
+            "type"   => "number",
+            "width"  => "50px",
+        ));
+
         $this->addColumn("created_at", array(
             "header" => $this->__("Requested At"),
             "index"  => "created_at",
