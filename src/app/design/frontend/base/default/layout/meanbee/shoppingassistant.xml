@@ -12,14 +12,14 @@
                     <template>meanbee/shoppingassistant/button.phtml</template>
                 </action>
             </block>
-            <block type="page/html_head" name="meanbee.shoppingassistant.js.lib" template="meanbee/shoppingassistant/scripts.phtml">
-                <action method="addJs" ifconfig="meanbee_shoppingassistant/general/enabled">
-                    <script>Meanbee/ShoppingAssistant/magentoShoppingAssistant.js</script>
-                </action>
-            </block>
             <block type="core/text" name="meanbee.shoppingassistant.togetherjs">
                 <action method="setText" ifconfig="meanbee_shoppingassistant/general/enabled">
                     <text><![CDATA[<script src="//togetherjs.com/togetherjs-min.js"></script>]]></text>
+                </action>
+            </block>
+            <block type="page/html_head" name="meanbee.shoppingassistant.js.lib" template="meanbee/shoppingassistant/scripts.phtml">
+                <action method="addJs" ifconfig="meanbee_shoppingassistant/general/enabled">
+                    <script>Meanbee/ShoppingAssistant/magentoShoppingAssistant.js</script>
                 </action>
             </block>
         </reference>
