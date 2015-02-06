@@ -1,27 +1,26 @@
 <script>
     var MeanbeeBaseUrl = "<?php echo Mage::getBaseUrl() ?>";
 
-    TogetherJSConfig_toolName = "<?php echo $this->__('Shopping Assistant') ?>";
-    TogetherJSConfig_siteName = "<?php echo Mage::app()->getWebsite()->getName() ?>";
+    TogetherJSConfig_toolName = "<?php echo $this->getToolName() ?>";
+    TogetherJSConfig_siteName = "<?php echo $this->getWebsiteName() ?>";
     TogetherJSConfig_suppressInvite = true;
     TogetherJSConfig_youtube = true;
 
-    <?php /** @var $customer Mage_Customer_Model_Customer */ ?>
-    <?php $customer = Mage::helper('customer')->getCustomer(); ?>
-    <?php if ($customer): ?>
-    TogetherJSConfig_getUserName = function () {
-        return "<?php echo $customer->getFirstname() . " " . $customer->getLastname(); ?>";
-    };
     TogetherJSConfig_getEmail = function () {
-        return "<?php echo $customer->getEmail() ?>";
+        return "<?php echo $this->getEmail() ?>";
     };
-    TogetherJSConfig_getUserAvatar = function () {
-        return "<?php echo "http://www.gravatar.com/avatar/". md5(strtolower(trim($customer->getEmail()))); ?>";
-    };
+
     TogetherJSConfig_getUserColor = function () {
-        return '#<?php echo substr(md5(rand()), 0, 6); ?>';
+        return "<?php echo $this->getColour() ?>";
     };
-    <?php endif; ?>
+
+    TogetherJSConfig_getUserAvatar = function () {
+        return "<?php echo $this->getAvatarUrl(); ?>";
+    };
+
+    TogetherJSConfig_getUserName = function () {
+        return "<?php echo $this->getName(); ?>";
+    };
 
     TogetherJSConfig_on_ready = function () {
        document.fire('togetherjs:ready');

@@ -7,7 +7,7 @@
             </action>
         </reference>
         <reference name="before_body_end">
-            <block type="core/template" name="meanbee.shoppingassistant">
+            <block type="meanbee_shoppingassistant/button" name="meanbee.shoppingassistant.button">
                 <action method="setTemplate" ifconfig="meanbee_shoppingassistant/general/enabled">
                     <template>meanbee/shoppingassistant/button.phtml</template>
                 </action>
