@@ -9,7 +9,9 @@ class Meanbee_ShoppingAssistant_RequestController extends Mage_Core_Controller_F
             'errors' => array()
         );
 
-        if ($this->getRequest()->isPost()) {
+        if (!Mage::helper("meanbee_shoppingassistant/config")->isEnabled()) {
+            $response['errors'][] = "Cannot submit shopping assistant requests at this time";
+        } else if ($this->getRequest()->isPost()) {
             $request = Mage::getModel("meanbee_shoppingassistant/request");
 
             $request->setData(array(
