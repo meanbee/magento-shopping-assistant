@@ -1,3 +1,4 @@
+/** var document, TogetherJS **/
 ;'use strict';
 
 var Meanbee_ShoppingAssistant = Class.create();
@@ -20,13 +21,18 @@ Meanbee_ShoppingAssistant.prototype = {
     },
 
     notifyAdmin: function() {
-        new Ajax.Request(MeanbeeBaseUrl + 'shopping_assistant', {
-            parameters: {url: TogetherJS.shareUrl()},
-            onSuccess: function(transport) {
-                var response = transport.responseText || "no response text";
-                alert("Success! \n\n" + response);
+        new Ajax.Request(MeanbeeBaseUrl + 'shopping_assistant/request/create', {
+            parameters: {
+                url: TogetherJS.shareUrl(),
+                name: TogetherJS.config.get("getUserName")(),
+                email: TogetherJSConfig_getEmail()
             },
-            onFailure: function() { alert('Something went wrong...'); }
+            onSuccess: function(response) {
+                var json = response.responseJSON;
+                if (json.response) {
+                    $$(this.options.startElements).first().innerText = json.response;
+                }
+            }
         });
     }
 

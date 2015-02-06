@@ -53,6 +53,15 @@
     </admin>
 
     <frontend>
+        <routers>
+            <meanbee_shoppingassistant>
+                <use>standard</use>
+                <args>
+                    <module>Meanbee_ShoppingAssistant</module>
+                    <frontName>shopping_assistant</frontName>
+                </args>
+            </meanbee_shoppingassistant>
+        </routers>
         <layout>
             <updates>
                 <meanbee_shoppingassistant>
