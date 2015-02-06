@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Meanbee_ShoppingAssistant>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </Meanbee_ShoppingAssistant>
     </modules>
     <global>

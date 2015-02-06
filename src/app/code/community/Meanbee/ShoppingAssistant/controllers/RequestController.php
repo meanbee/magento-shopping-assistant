@@ -10,17 +10,23 @@ class Meanbee_ShoppingAssistant_RequestController extends Mage_Core_Controller_F
         );
 
         if ($this->getRequest()->isPost()) {
-            $url = $this->getRequest()->getPost('url');
-            $name = $this->getRequest()->getPost('name');
+            $request = Mage::getModel("meanbee_shoppingassistant/request");
+
+            $request->setData(array(
+                "name" => $this->getRequest()->getPost("name"),
+                "url"  => $this->getRequest()->getPost("url")
+            ));
 
             if ($email = $this->getRequest()->getPost('email')) {
                 $customer = Mage::getModel('customer/customer');
                 $customer->setWebsiteId(Mage::app()->getWebsite()->getId());
                 $customer->loadByEmail($email);
+
+                if ($customer->getId()) {
+                    $request->setCustomerId($customer->getId());
+                }
             }
 
-            $request = Mage::getModel('meanbee_shoppingassistant/request');
-            $request->setData('url', $url);
             $request->save();
 
             $response['response'] = "Assistant on their way";
@@ -30,8 +36,5 @@ class Meanbee_ShoppingAssistant_RequestController extends Mage_Core_Controller_F
 
         $this->getResponse()->clearHeaders()->setHeader('Content-type','application/json',true);
         $this->getResponse()->setBody(json_encode($response));
-
-
-
     }
 }
