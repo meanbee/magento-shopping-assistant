@@ -1,5 +1,8 @@
 <script>
     var MeanbeeBaseUrl = "<?php echo Mage::getBaseUrl() ?>";
+
+    TogetherJSConfig_siteName = "<?php echo Mage::app()->getWebsite()->getName() ?>";
+
     <?php /** @var $customer Mage_Customer_Model_Customer */ ?>
     <?php $customer = Mage::helper('customer')->getCustomer(); ?>
     <?php if ($customer): ?>
