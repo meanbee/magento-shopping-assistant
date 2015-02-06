@@ -9,6 +9,9 @@
     TogetherJSConfig_getUserName = function () {
         return "<?php echo $customer->getFirstname() . " " . $customer->getLastname(); ?>";
     };
+    TogetherJSConfig_getEmail = function () {
+        return "<?php echo $customer->getEmail() ?>";
+    };
     TogetherJSConfig_getUserAvatar = function () {
         return "<?php echo "http://www.gravatar.com/avatar/". md5(strtolower(trim($customer->getEmail()))); ?>";
     };
