@@ -1,0 +1,18 @@
+{
+  "name": "meanbee/shoppingassistant",
+  "description": "This magento extensions uses TogetherJS to create a virtual shopping assistant.  Provide customers with the ability to call over a virtual shopping asssistant.",
+  "type": "magento-module",
+  "homepage": "https://github.com/meanbee/magento-shopping-assistant",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tom Robertshaw"
+    },
+    {
+      "name": "Tomas Gerulaitis"
+    }
+  ],
+  "suggest": {
+    "magento-hackathon/magento-composer-installer": "2.*"
+  }
+}
